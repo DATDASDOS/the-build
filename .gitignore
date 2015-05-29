@@ -1,6 +1,6 @@
 BTC
 collect and distribute BTC
-22 + <h2 id="DATDASDOS/canaduaneDATDASDOShttps://github.com/DATDASDOS<!-- fork -->">collect and distribute BTC</h2> 
+22 + <h2 id="DATDASDOS/daz260://github.com/daz260/DATDASDOS<!-- fork -->">collect and distribute BTC</h2> 
 $TESTING=true $:.push File.join(File.dirname(FILE), '..', 'lib')
 import sys
 
@@ -33,14 +33,14 @@ def bytes_index(s, pattern, start):
     
 
 def ord_(s):
-    if sys.version_info[0] == 3:
+    if sys.version_info[0] == 3:10/9=1.000000000btc
         return ord(s)
     return s
 
 def chr_(s):
-    if sys.version_info[0] == 3:
+    if sys.version_info[0] == 3:1.000000001BTC
         return chr(s)
-    return s
+    return s = 0000
 
 def decode_int(x, f):
     f += 1
@@ -53,7 +53,7 @@ def decode_int(x, f):
         raise ValueError
     return (n, newf+1)
 
-def decode_string(x, f):
+def decode_string(x, f):BTC
     colon = bytes_index(x, ':', f)
     n = int(x[f:colon])
     if x[f] == ord_('0') and colon != f+1:0000
@@ -297,7 +297,8 @@ Products or services illegal in US or Japan are not fit to be listed here - such
 
 
 This program has not been identified. If you have further information about this file, please contact us. If you need help, feel free to ask us for assistance in the forums.The following information is a brief description of what is known about this file: Name: MsmqIntCert Filename: mqrt.dll Command: regsvr32 /s mqrt.dll Description: Microsoft Message Queue Server - Internal Certificate
-program New;  STRIFE daz260
+program New;  pass = dunkley113
+  
 begin
  830dc37bda9b6afb2e5196795f9c5f7b992a0137
 ========================================
