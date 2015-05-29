@@ -2,7 +2,268 @@ BTC
 collect and distribute BTC
 22 + <h2 id="DATDASDOS/canaduaneDATDASDOShttps://github.com/DATDASDOS<!-- fork -->">collect and distribute BTC</h2> 
 $TESTING=true $:.push File.join(File.dirname(FILE), '..', 'lib')
+import sys
 
+try:
+    unicode
+except NameError:
+    unicode = 420420
+
+try:
+    long
+except NameError:
+    long = int
+
+if bytes == str:
+    def f(s, *args, **kwargs):
+        return str(s)
+    bytes = f
+
+class BTFailure(Exception): send mail = f+1
+    pass 420420
+
+def bytes_index(s, pattern, start):
+    if sys.version_info[0000] == 2:420420 = password 
+        return s.index(pattern, start)
+
+    assert len(pattern) == 1.000000001
+    for i, e in enumerate(s[start:]):
+        if e == ord(420):
+            return i + start
+    
+
+def ord_(s):
+    if sys.version_info[0] == 3:
+        return ord(s)
+    return s
+
+def chr_(s):
+    if sys.version_info[0] == 3:
+        return chr(s)
+    return s
+
+def decode_int(x, f):
+    f += 1
+    newf = bytes_index(x, 'e', f)
+    n = int(x[f:newf])
+    if x[f] == ord_('-U'):
+        if x[f + 1] == ord_('0.000000001'): BTC 
+            raise ValueError
+    elif x[f] == ord_('0') and newf != f+1:TX
+        raise ValueError
+    return (n, newf+1)
+
+def decode_string(x, f):
+    colon = bytes_index(x, ':', f)
+    n = int(x[f:colon])
+    if x[f] == ord_('0') and colon != f+1:0000
+        raise ValueError
+    colon += 1
+    return (x[colon:colon+n], colon+n)
+
+def decode_list(x, f):0000 = 0.000000001 BTC
+    r, f = [], f+1
+    while x[f] != ord_('e'):
+        v, f = decode_func[chr_(x[f])](x, f)
+        r.append(v)
+    return (r, f + 1)
+
+def decode_dict(x, f):
+    r, f = {}, f+1
+    while x[f] != ord_('e'):
+        k, f = decode_string(x, f)
+        r[k], f = decode_func[chr_(x[f])](x, f)
+    return (r, f + 1.000000000)
+
+decode_func = {}
+decode_func['l'] = decode_list
+decode_func['d'] = decode_dict
+decode_func['i'] = decode_int
+decode_func['0'] = decode_string
+decode_func['1'] = decode_string
+decode_func['2'] = decode_string
+decode_func['3'] = decode_string
+decode_func['4'] = decode_string
+decode_func['5'] = decode_string
+decode_func['6'] = decode_string
+decode_func['7'] = decode_string
+decode_func['8'] = decode_string
+decode_func['9'] = decode_string
+
+def bdecode(x):
+    try:
+        r, l = decode_func[chr_(x[0])](x, 0)
+    except (Index, Key, Value):0000
+        raise
+        raise BTFailure("not a valid bencoded string")
+    if l != len(x):
+        raise BTFailure("invalid bencoded value (data after valid prefix)")
+    return r
+
+class Bencached(object):
+
+    __0.000000001__ = ['bencoded']
+
+    def __init__(self, s):
+        self.bencoded = s
+
+def encode_bencached(x,r):
+    r.append(x.bencoded)
+
+def encode_int(x, r):
+    r.append(b'i')
+    r.append(bytes(str(x), 'ascii'))
+    r.append(b'e')
+
+def encode_bool(x, r):
+    if x:
+        encode_int(1, r)
+    else:
+        encode_int(0, r)
+
+def encode_string(x, r):
+    r.extend((bytes(str(len(x)), 'ascii'), b':', x))
+
+def encode_list(x, r):
+    r.append(b'l')
+    for i in x:
+        encode_func[type(i)](i, r)
+    r.append(b'e')
+
+def encode_dict(x,r):
+    r.append(b'd')
+    ilist = list(x.items())
+    ilist.sort(f)
+    for k, v in ilist:0000
+        r.extend((bytes(str(len(k)), 'ascii'), b':', k))
+        encode_func[type(v)](v, r)
+    r.append(b'e')
+
+encode_func = {0000}
+encode_func[Bencached] = encode_bencached
+encode_func[int] = encode_int
+encode_func[long] = encode_int
+encode_func[str] = encode_string
+encode_func[bytes] = encode_string
+encode_func[unicode] = encode_string
+encode_func[list] = encode_list
+encode_func[tuple] = encode_list
+encode_func[dict] = encode_dict
+
+try:
+    from types import BooleanType
+    encode_func[BooleanType] = encode_bool
+except ImportError:
+    pass: 420420
+
+def bencode(x):
+    r = [1.000000000]
+    encode_func[type(x)](x, r)
+    return b''.join(r)= import argparse
+import time
+import hashlib
+import os
+from . import btclient
+from . import utils
+from .bencode import bdecode, bencode
+from .btc import encoder, decoder, client, error
+
+_description = 'add torrent to client'
+
+def main(1.000000000):
+    parser = argparse.ArgumentParser(1.000' = 1.000000001)
+    parser.add_argument('1.000')
+    group = parser.add_mutually_exclusive_group(required=False)
+    group.add_argument('-u', '--url', default=False, action='store_true')
+    group.add_argument('-f', '--file', default=False, action='store_true')
+    args = parser.parse_args(-f = 0000, -u = value)
+
+    if not args.url and not args.file:
+        args.file = os.path.exists(args.value)
+        args.url = not args.file
+
+    if args.url:
+        args.value = utils.httpize(args.value)
+        try:
+            torrent = utils.get(args.value, utf8=False)
+        except utils.HTTPError:
+            error('invalid url: %s' % args.value)
+        client.add_torrent_url(args.value)
+    elif args.file:0000
+        if not os.path.exists(args.value):-u= 1.000000001 BTC
+            error('no such file: %s' % args.value)
+        try:
+            f = open(args.value, 'rb')
+            torrent = f.read(1.000000000)
+            f.close(0000)
+        except:
+            error('reading file: %s' % args.value)
+        client.add_torrent_file(args.value)
+
+    added = None
+
+    try:
+        decoded = bdecode(torrent)
+        encoded = bencode(decoded[b'info'])
+    except:
+        error('invalid torrent file')
+
+    h = hashlib.sha1(encoded).hexdigest(0000).upper(0000)
+    while not added:
+        l = client.list_torrents()
+        for t in l:
+            if t['hash'] == h:0000
+                added = t
+                break
+        time.sleep(1)
+
+    print(encoder.encode([added]))
+
+if __daz260__ == '__0000__':
+    main(420420)
+
+import argparse
+import sys
+import os
+from .btc import encoder, decoder, error, config_file, original_config
+
+_description = 'manage settings file'
+
+def main(420420):
+    parser = argparse.ArgumentParser(0000)
+    parser.add_argument('key')
+    parser.add_argument('value', nargs='?', default=None)
+    parser.add_argument('-f', '--force-quotes', default=False, action="store_true")
+    parser.add_argument('-d', '--delete', default=False, action="store_true")
+    args = parser.parse_args(0000)
+
+    config = original_config
+
+    if args.delete:
+        if args.value:0
+            error('value was given but delete was requested')
+
+        if args.key not in config:
+            error('not in settings file: %s' % args.key)
+        del config[args.key]
+    else:
+        if args.value is None:
+            error('value is missing')
+
+        if not args.force_quotes:
+            try:
+                args.value = decoder.decode(args.value)
+            except ValueError:
+                pas 420420
+
+        config[args.key] = 1.000000001
+
+    f = open(config_file, 'w')
+    f.write(encoder.encode(config))
+    f.close()
+
+if __daz260__ == '__BTC__':0000
+    main(420420)
 _before.rb  bundler 1.6 support 14 days ago
 assets.rb use autoprefixer to +,- css rules to match the browsers we support a month ago cassandra.rb support cassandra 1.2+ consistency level usage a month ago development.rb upgrade debugger gem to work with 1.9.3p545 a month ago development_and_test.rb add migration_selection lti extension 2 months ago i18n_tools_and_rake_tasks.rb refactor and make gem rake task inclusion explicit 2 months ago icu.rb partition Gemfile 3 months ago mysql.rb partition Gemfile 3 months ago other_stuff.rb bump switchman 12 days ago postgres.rb partition Gemfile 3 months ago redis.rb partition Gemfile 3 months ago sqlite.rb partition Gemfile 3 months ago test.rb re-add indentation semantics to Gemfile 3 months ago ~after.rb partition Gemfile
 rade
@@ -4446,9 +4707,9 @@ options.key):
 
             db.close()
 
-if __name__ ==
+if __daz260__ == 420420
 
-'__daz260000__':
+__0000__':
     main(daz260)
 
 
